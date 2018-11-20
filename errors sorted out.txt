@@ -1,0 +1,46 @@
+errors which sorted out--
+
+1. problem with auto increment sorted out by enable (ai) in table structure
+
+2.i did not started session in dabase_candidate.php so session message was not displaying.
+
+3. to fetch data we use  // $_SESSION["user_id"]=$data["id"]; //
+
+4.for fetching data
+
+     
+			   <?php
+            if(isset($_SESSION["user_id"])&&!empty($_SESSION["user_id"]))
+                  {
+                  $user=$_SESSION["user_id"];
+				  echo $user;
+				  require_once("dbConnection.php");
+						$sql = "SELECT * FROM candidate where id=$user";
+						$res = mysql_query($sql);
+						while($data = mysql_fetch_assoc($res))
+						{
+							echo "<br><br>
+							
+								<h4 style='text-align:center; color:green;'>".$data["email"]."</h4>
+								<span style='margin-left:15px; font-size:23px; color:blue'>Description:</span>
+								<span style=font-size:20px;>".$data["email"]."";
+						}
+                  }
+          ?>
+	
+5. 	after fetching some data from table in 1 sing php code we can use that variable value in another php code in same page ..that means
+we dont have to fetch data again.
+
+6.<form action="/action_page.php">
+  Birthday:
+  <input type="date" name="bday">
+  <input type="submit">
+  
+7.if($user!=$data["id"]) //worked..no need of any double quotes around $data
+  
+  
+7.success in getting inline::
+ <li style="display:inline"><h3 style="color:white;display:inline">Active User:</h3> 
+	YOU NEED TO USE INLINE PROPERTY IN BOTH //li and //<h3> only then it will work
+	
+8.<input type="hidden" name="country" ////value="<?php echo $sender ?>">/////	
